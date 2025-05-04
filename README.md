@@ -3,12 +3,7 @@
 ## Descripción del Proyecto
 Este proyecto es el entregable final del curso **Inteligencia Artificial 1** de la Universidad ICESI, Facultad de Ingeniería, Diseño y Ciencias Aplicadas, semestre 2025-1. Desarrollado por un grupo de [2-3] estudiantes, el objetivo es crear una herramienta de software que analice actividades específicas de una persona (caminar hacia la cámara, caminar de regreso, girar, sentarse, ponerse de pie) en videos en tiempo real, utilizando técnicas de inteligencia artificial y analítica. La herramienta clasifica actividades y realiza un seguimiento de movimientos articulares y posturales, como inclinaciones laterales y ángulos de articulaciones clave.
 
-El proyecto sigue la metodología **CRISP-DM** y utiliza herramientas como **MediaPipe** para el seguimiento de articulaciones, **LabelStudio** o **CVAT** para la anotación de datos, y modelos supervisados (SVM, Random Forest, XGBoost) para la clasificación de actividades.
-
-### **Integrantes**
-- [Nombre del estudiante 1] - [Rol o contribución principal]
-- [Nombre del estudiante 2] - [Rol o contribución principal]
-- [Nombre del estudiante 3, si aplica] - [Rol o contribución principal]
+El proyecto sigue la metodología **CRISP-DM** y utiliza herramientas como **MediaPipe** para el seguimiento de articulaciones y modelos supervisados (SVM, Random Forest, XGBoost) para la clasificación de actividades.
 
 ## Objetivos
 - **Objetivo principal**: Desarrollar un sistema que clasifique actividades humanas en tiempo real a partir de videos y realice un seguimiento de articulaciones clave (cadera, rodillas, tobillos, muñecas, hombros, cabeza).
