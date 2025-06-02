@@ -9,8 +9,9 @@ import numpy as np
 #como sacar los promedios de las partes promediables como las manos, pies y cara
 
 # Ruta del video y archivo de salida
-video_path = "" #Poner la ruta del video
-csv_path = "" #Poner la ruta de donde se guarda el archivo
+video_path = r"" #Poner la ruta del video
+csv_path = r"" #Poner la ruta de donde se guarda el archivo
+
 
 # Configuración de MediaPipe Pose
 mp_pose = mp.solutions.pose 
@@ -42,7 +43,7 @@ fps = cap.get(cv2.CAP_PROP_FPS)
 
 # CSV
 f = open(csv_path, 'w', newline='')
-writer = csv.writer(f)
+writer = csv.writer(f, delimiter=';')
 
 # Header: primer columna 'segundo' y coordenadas de landmarks no excluidos
 header = ['segundo']

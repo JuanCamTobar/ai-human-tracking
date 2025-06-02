@@ -181,7 +181,7 @@ for col in ['landmark_10_y', 'landmark_10_z', 'landmark_11_z',
     df[col] = pd.to_numeric(df[col], errors='coerce')
 
 
-df['Etiqueta'] = df['etiqueta'].astype('category')
+df['etiqueta'] = df['etiqueta'].astype('category')
 
 df.info()
 
