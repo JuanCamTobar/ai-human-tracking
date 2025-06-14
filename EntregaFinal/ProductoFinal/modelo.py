@@ -4,17 +4,36 @@ import numpy as np
 import joblib
 import os
 
-# --- 1. Cargar el Modelo Original
-# Usamos la ruta y el nombre del modelo original.
-model_path = r'C:\Users\Usuario\OneDrive\Escritorio\Universidad\IA\PROYECTO\ai-human-tracking\EntregaFinal\modelo_postura_produccion.joblib'
+import os
+import sys
+from pathlib import Path
 
+# --- Configuración de rutas relativas ---
+def get_base_path():
+    """Devuelve la ruta base del proyecto (donde está el .joblib)"""
+    try:
+        base_path = sys._MEIPASS
+    except AttributeError:
+        # En desarrollo normal, usa el directorio del script
+        base_path = os.path.dirname(os.path.abspath(__file__))
+    return base_path
+
+# Ruta al modelo (relativa al directorio del script)
+model_path = os.path.join(get_base_path(), 'modelo_postura_produccion.joblib')
+
+# --- Carga del Modelo (con verificación) ---
 try:
+    print(f"Buscando modelo en: {model_path}")
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"No se encontró el modelo en {model_path}")
+        
     modelo = joblib.load(model_path)
-    print(f"Modelo original cargado exitosamente.")
-    print(f"El modelo espera {modelo.n_features_in_} características de entrada.")
-except FileNotFoundError:
-    print(f"ERROR: No se encontró el archivo del modelo en la ruta especificada.")
-    print("Por favor, verifica que la ruta y el nombre del archivo son correctos.")
+    print(f"Modelo cargado exitosamente. Espera {modelo.n_features_in_} características")
+    
+except Exception as e:
+    print(f"ERROR al cargar el modelo: {str(e)}")
+    print("Directorios disponibles:")
+    print("\n".join(os.listdir(get_base_path())))
     exit()
 
 # --- 2. Inicializar MediaPipe Pose ---
